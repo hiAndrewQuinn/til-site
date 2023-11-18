@@ -15,12 +15,16 @@ jobs:
         
     - name: Commit and Push Changes
       run: |
+        pwd
+        ls
         git config --global user.name 'DrewBot'
         git config --global user.email 'drewbot@example.com'
 
+        cat .gitmodules
         echo 'attempting to update submodules now'
         git submodule update --remote --merge
 
+        cat .gitmodules
         echo 'adding'
         git add -A
         echo 'committing'
