@@ -21,10 +21,12 @@ jobs:
         git config --global user.email 'drewbot@example.com'
 
         cat .gitmodules
+        git submodule status
         echo 'attempting to update submodules now'
         git submodule update --remote --merge
 
         cat .gitmodules
+        git submodule status
         echo 'adding'
         git add -A
         echo 'committing'
