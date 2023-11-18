@@ -23,7 +23,7 @@ jobs:
         cat .gitmodules
         git submodule status
         echo 'attempting to update submodules now'
-        git submodule update --init --recursive --depth=1
+        git submodule update --init --recursive
         git submodule update --remote --merge
 
         cat .gitmodules
