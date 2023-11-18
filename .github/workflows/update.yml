@@ -1,0 +1,30 @@
+name: Update Submodule and Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_and_build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 
+        token: ${{ secrets.GITHUB_TOKEN }} # Use this token for checkout
+
+    - name: Update submodules to the latest commits
+      run: |
+        git submodule update --remote --merge
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name 'DrewBot'
+        git config --global user.email 'drewbot@example.com'
+        git add -A
+        if git diff-index --quiet HEAD --; then
+          echo "No changes detected"
+        else
+          git commit -m "Update submodules"
+          git push
+        fi
