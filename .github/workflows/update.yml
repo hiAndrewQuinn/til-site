@@ -17,9 +17,13 @@ jobs:
       run: |
         git config --global user.name 'DrewBot'
         git config --global user.email 'drewbot@example.com'
-        
+
+        echo 'attempting to update submodules now'
         git submodule update --remote --merge
-        
+
+        echo 'adding'
         git add -A
+        echo 'committing'
         git commit -m "Update submodules"
+        echo 'pushing'
         git push
