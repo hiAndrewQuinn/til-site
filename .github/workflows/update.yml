@@ -12,19 +12,14 @@ jobs:
       with:
         fetch-depth: 0 
         token: ${{ secrets.GITHUB_TOKEN }} # Use this token for checkout
-
-    - name: Update submodules to the latest commits
-      run: |
-        git submodule update --remote --merge
-
+        
     - name: Commit and Push Changes
       run: |
         git config --global user.name 'DrewBot'
         git config --global user.email 'drewbot@example.com'
+        
+        git submodule update --remote --merge
+        
         git add -A
-        if git diff-index --quiet HEAD --; then
-          echo "No changes detected"
-        else
-          git commit -m "Update submodules"
-          git push
-        fi
+        git commit -m "Update submodules"
+        git push
