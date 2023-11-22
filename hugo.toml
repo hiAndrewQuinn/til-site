@@ -1,4 +1,4 @@
 baseURL = 'https://hiandrewquinn.github.io/til-site/'
 languageCode = 'en-us'
 title = "Andrew Quinn's TILs"
-theme = 'PaperMod'
+theme = 'hugo-PaperMod'
