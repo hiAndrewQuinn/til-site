@@ -36,9 +36,7 @@ jobs:
       - name: Checkout Repo and Initialize First Submodule
         run: |
           sudo snap install hugo
-          git submodule update --init
-          rm -rf content/posts/.git/
-          rm -rf themes/PaperMod/.git/
+          git submodule update --init --depth=1
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
