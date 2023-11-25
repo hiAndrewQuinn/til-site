@@ -2,6 +2,9 @@ name: Update Submodule and Build
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-existing-action]
+
 
 jobs:
   update_and_build:
