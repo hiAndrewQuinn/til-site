@@ -22,20 +22,26 @@ weight = 1
   tag = "tags"
   series = "series"
 
-[[languages.en.menu.main]]
-name = "Archive"
-url = "archives"
-weight = 5
+  [[languages.en.menu.main]]
+  name = "Archive"
+  url = "https://github.com/hiAndrewQuinn/til"
+  weight = 100
 
-[[languages.en.menu.main]]
-name = "Search"
-url = "search/"
-weight = 10
+  [[languages.en.menu.main]]
+  name = "Search"
+  url = "https://github.com/search?q=repo%3AhiAndrewQuinn%2Ftil+&type=code"
+  weight = 200
 
-[[languages.en.menu.main]]
-name = "Tags"
-url = "tags/"
-weight = 10
+  [[languages.en.menu.main]]
+  name = "Tags"
+  url = "tags/"
+  weight = 300
+
+  [[languages.en.menu.main]]
+  name = "andrew-quinn.me"
+  url = "https://andrew-quinn.me"
+  weight = 400
+
 
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]
@@ -65,12 +71,22 @@ images = [ "papermod-cover.png" ]
   [params.homeInfoParams]
   Title = "Andrew Quinn's TILs"
   Content = """
- A place to keep track of things I've learned. Inspired by [Simon Willison's TILs](https://til.simonwillison.net).
+A place to keep track of things I've learned. Inspired by [Simon Willison's TILs](https://til.simonwillison.net).
+
+All thoughts, opinions, etc. expressed herein are strictly my own and not of my employer's.
+
+Consulting available under the business name [Siilikuin](https://siilikuin.com). For inquiries please email my first name at siilikuin.com.
+
+**Comments at the bottom of every page**, including this one - check it out!
   """
 
   [[params.socialIcons]]
   name = "github"
   url = "https://github.com/hiAndrewQuinn/til"
+
+  [[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/heiandrewquinn"
 
   [[params.socialIcons]]
   name = "Rss"
