@@ -89,6 +89,10 @@ Consulting available under the business name [Siilikuin](https://siilikuin.com).
   url = "https://www.linkedin.com/in/heiandrewquinn"
 
   [[params.socialIcons]]
+  name = "x"
+  url = "https://x.com/hiAndrewQuinn"
+
+  [[params.socialIcons]]
   name = "Rss"
   url = "index.xml"
 
