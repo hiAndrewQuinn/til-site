@@ -1,0 +1,66 @@
+:root {
+  /* Base Color Palette (matching andrew-quinn.me) */
+  --copper: #a8763eff;
+  --cosmic-latte: #f7f3e3ff;
+  --antiflash-white: #ecf0f1ff;
+  --specsavers-green: #0a6640ff;
+  --barn-red: #6f1a07ff;
+  --bistre: #2b2118ff;
+
+  /* Non-color variables */
+  --gap: 24px;
+  --content-gap: 20px;
+  --nav-width: 1024px;
+  --main-width: 720px;
+  --header-height: 60px;
+  --footer-height: 60px;
+  --radius: 8px;
+
+  /* Light Theme Colors (default) */
+  --theme: var(--cosmic-latte);          /* Overall background color */
+  --entry: var(--antiflash-white);       /* Background for cards/entries */
+  --primary: var(--bistre);              /* Main text color */
+  --secondary: var(--copper);            /* Accent color, links */
+  --tertiary: var(--specsavers-green);   /* Tertiary text or accent */
+  --content: var(--bistre);              /* General content text */
+  --hljs-bg: var(--antiflash-white);     /* Background for highlighted code */
+  --code-bg: var(--antiflash-white);     /* Background for general inline code blocks */
+  --border: var(--bistre);               /* Border color */
+}
+
+.dark {
+  /* Dark Theme Colors (matching andrew-quinn.me) */
+  --theme: #1a1611;                      /* Dark mode background */
+  --entry: #2b2118;                      /* Background for cards/entries in dark mode */
+  --primary: #e8dcc8;                     /* Main text color on dark background */
+  --secondary: #d4a574;                   /* Accent color, links in dark mode */
+  --tertiary: #7ed99f;                    /* Code text color in dark mode */
+  --content: #e8dcc8;                     /* General content text on dark background */
+  --hljs-bg: #1e1a16;                     /* Background for highlighted code in dark mode */
+  --code-bg: #1e1a16;                     /* Background for inline code blocks in dark mode */
+  --border: #4a3f2f;                      /* Border color in dark mode */
+}
+
+.post-single a {
+  color: var(--copper);
+}
+
+.post-single a:hover,
+.post-single a:focus {
+  background-color: #fff2a8; /* Light yellow hover matching main site */
+}
+
+code {
+  color: var(--specsavers-green); /* Code text color (Light mode) */
+}
+
+.dark code {
+  color: #7ed99f; /* Code text color in Dark mode */
+}
+
+/* Dark mode specific hover states */
+.dark .post-single a:hover,
+.dark .post-single a:focus {
+  background-color: rgba(212, 165, 116, 0.2); /* Dark mode hover */
+  color: #f7f3e3;
+}
