@@ -113,7 +113,7 @@ style = "monokai"
 disabled = true
 simple = true
 
-[privacy.twitter]
+[privacy.x]
 disabled = false
 enableDNT = true
 simple = true
@@ -129,5 +129,5 @@ privacyEnhanced = true
 [services.instagram]
 disableInlineCSS = true
 
-[services.twitter]
+[services.x]
 disableInlineCSS = true
