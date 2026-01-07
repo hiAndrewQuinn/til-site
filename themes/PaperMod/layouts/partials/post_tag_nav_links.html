@@ -1,0 +1,44 @@
+{{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+{{- $currentTags := $.GetTerms $tags }}
+{{- if gt (len $currentTags) 0 }}
+<div class="tag-nav-section">
+  {{- range $currentTags }}
+    {{- $currentPage := $ }}
+    {{- $tagName := .LinkTitle }}
+    {{- $tagNameLower := lower $tagName }}
+    {{- $tagPages := slice }}
+    {{- range $page := where site.RegularPages "Type" "in" site.Params.mainSections }}
+      {{- range .Params.tags }}
+        {{- if eq (lower .) $tagNameLower }}
+          {{- $tagPages = $tagPages | append $page }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+    {{- if gt (len $tagPages) 1 }}
+      {{- $prevInTag := ($tagPages.Next $currentPage) }}
+      {{- $nextInTag := ($tagPages.Prev $currentPage) }}
+      {{- if or $prevInTag $nextInTag }}
+      <div class="tag-nav-card">
+        <h3 class="tag-nav-header">in <a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h3>
+        <nav class="paginav">
+          {{- with $prevInTag }}
+          <a class="prev" href="{{ .Permalink }}">
+            <span class="title">« Prev</span>
+            <br>
+            <span>{{- .Name -}}</span>
+          </a>
+          {{- end }}
+          {{- with $nextInTag }}
+          <a class="next" href="{{ .Permalink }}">
+            <span class="title">Next »</span>
+            <br>
+            <span>{{- .Name -}}</span>
+          </a>
+          {{- end }}
+        </nav>
+      </div>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+</div>
+{{- end }}
