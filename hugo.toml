@@ -1,5 +1,5 @@
 baseURL = 'https://til.andrew-quinn.me/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = "Andrew Quinn's TILs"
 theme = 'PaperMod'
 
@@ -14,7 +14,7 @@ enableEmoji = true
 disableXML = true
 
 [languages.en]
-languageName = "English"
+label = "English"
 weight = 1
 
   [languages.en.taxonomies]
