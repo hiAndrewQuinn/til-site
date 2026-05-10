@@ -20,10 +20,20 @@ jobs:
     env:
       HUGO_VERSION: 0.161.1
     steps:
+      - name: Cache Hugo binary
+        id: cache-hugo
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/bin/hugo
+          key: hugo-${{ env.HUGO_VERSION }}-linux-amd64
       - name: Install Hugo
+        if: steps.cache-hugo.outputs.cache-hit != 'true'
         run: |
-          wget -qO /tmp/hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
-          sudo dpkg -i /tmp/hugo.deb
+          mkdir -p "$HOME/.local/bin"
+          wget -qO- "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz" \
+            | tar -xzC "$HOME/.local/bin" hugo
+      - name: Add Hugo to PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - uses: actions/checkout@v4
         with:
           submodules: recursive
