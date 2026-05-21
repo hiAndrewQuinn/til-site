@@ -46,6 +46,40 @@ weight = 1
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]
 
+# Images live next to their .md files in the til repo (content/posts/).
+# Expose those image files as static assets so Markdown can reference
+# them with absolute paths like /totp-example-01.png. When you define
+# any module.mounts, you must redeclare the default mounts too.
+[module]
+  [[module.mounts]]
+  source = "content"
+  target = "content"
+  [[module.mounts]]
+  source = "static"
+  target = "static"
+  [[module.mounts]]
+  source = "layouts"
+  target = "layouts"
+  [[module.mounts]]
+  source = "data"
+  target = "data"
+  [[module.mounts]]
+  source = "assets"
+  target = "assets"
+  [[module.mounts]]
+  source = "i18n"
+  target = "i18n"
+  [[module.mounts]]
+  source = "archetypes"
+  target = "archetypes"
+  # Expose images that live next to .md files in the til repo at
+  # /img/<filename>. The mount target is a namespaced subdir so it
+  # doesn't collide with the /posts/ content section routing.
+  [[module.mounts]]
+  source = "content/posts"
+  target = "static/img"
+  files = ["**.png", "**.jpg", "**.jpeg", "**.gif", "**.webp", "**.svg"]
+
 [params]
 defaultTheme = "auto"
 ShowPostNavLinks = true

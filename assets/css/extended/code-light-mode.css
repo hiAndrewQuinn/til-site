@@ -1,0 +1,22 @@
+/* Hugo's chroma highlighter (with the default noClasses=true) emits the
+   "monokai" colors as INLINE styles on <pre> and <span> elements — e.g.
+   color:#f8f8f2 on a dark background. PaperMod's light theme overrides
+   that background to cream but cannot touch the inline foreground, so
+   code text ends up nearly invisible on light backgrounds.
+
+   The fix: in light mode, override the inline foreground colors with
+   !important. We only need to handle plain text (most code blocks here
+   are tagged ``text``); syntax-token colors are left alone since they
+   tend to be bright but readable on cream. Dark mode is untouched. */
+
+body:not(.dark) .highlight,
+body:not(.dark) .highlight pre,
+body:not(.dark) .highlight code,
+body:not(.dark) .highlight code span {
+  color: #1a1611 !important;
+}
+
+/* Line numbers: keep them distinct but darker than the monokai gray. */
+body:not(.dark) .highlight code a[href^="#hl-"] {
+  color: #6b5d4a !important;
+}
