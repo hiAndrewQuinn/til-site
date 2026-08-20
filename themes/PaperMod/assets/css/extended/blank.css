@@ -3,3 +3,38 @@ This is just a placeholder blank stylesheet so as to support adding custom style
 
 Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-css-with-themes-assets for more info
 */
+
+/* Tag-specific navigation cards */
+.tag-nav-section {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag-nav-card {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--entry);
+}
+
+.tag-nav-header {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--secondary);
+    text-transform: lowercase;
+}
+
+.tag-nav-header a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.tag-nav-header a:hover {
+    text-decoration: underline;
+}
+
+.tag-nav-card .paginav {
+    margin: 0;
+}
